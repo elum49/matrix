@@ -50,4 +50,26 @@ int main() {
         }
     }
     cout << "Макс. сумма подматрицы 2x2: " << maxSum << endl;
+
+    int sum = 0;
+    for (int j = 0; j < n; j++) sum += matrix[0][j];
+    
+    bool magic = true;
+    for (int i = 1; i < n; i++) {
+        int rowSum = 0;
+        for (int j = 0; j < n; j++) rowSum += matrix[i][j];
+        if (rowSum != sum) magic = false;
+    }
+    
+    cout << "Магический квадрат: " << (magic ? "Да" : "Нет") << endl;
+    
+    for (int i = 0; i < n; i++) {
+        delete[] matrix[i];
+        delete[] rotated[i];
+    }
+    delete[] matrix;
+    delete[] rotated;
+    
+    return 0;
+}
     
