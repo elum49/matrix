@@ -41,3 +41,13 @@ int main() {
         }
         cout << endl;
     }
+
+        int maxSum = 0;
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-1; j++) {
+            int sum = matrix[i][j] + matrix[i][j+1] + matrix[i+1][j] + matrix[i+1][j+1];
+            if (sum > maxSum) maxSum = sum;
+        }
+    }
+    cout << "Макс. сумма подматрицы 2x2: " << maxSum << endl;
+    
